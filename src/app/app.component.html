@@ -3,11 +3,42 @@
 <div class="ui-grid" style="">
   <div class="ui-grid-col-3" style="height: 40em;">
     <i class="pi pi-spin pi-spinner" *ngIf="files.length == 0" style="font-size: 2rem"></i>
-<p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile" [contextMenu]="cm"></p-tree>
+<p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile" [contextMenu]="cm" [virtualScroll]="true" [virtualNodeHeight]="33" scrollHeight="44em"></p-tree>
 
 <p-contextMenu #cm [model]="items"></p-contextMenu>
 <p-toast></p-toast>
 </div>
 <div class="ui-grid-col-9" style="height: 40em;border: 1px solid #c8c8c8;border-radius: 2px;">
+  <div style="padding:10px">
+    <div class="ui-grid" *ngIf="viewedFile">
+      <div class="ui-grid-col-2" style="padding: 20px;" *ngFor="let file of selectedFile.children">
+<div  >
+  <div>
+    <!-- <i [ngClass]="{'pi pi-folder':file.collapsedIcon=='pi pi-folder','pi pi-image':file.icon=='pi pi-image','pi pi-video':file.icon=='pi pi-video','pi pi-file':file.icon=='pi pi-file'}" style="font-size: 2rem"></i> -->
+  <i *ngIf="file.collapsedIcon=='pi pi-folder'" class="pi pi-folder"  style="font-size: 2rem"></i>
+  <i *ngIf="file.icon=='pi pi-image'" class="pi pi-image"  style="font-size: 2rem"></i>
+  <i *ngIf="file.icon=='pi pi-video'" class="pi pi-video"  style="font-size: 2rem"></i>
+  <i *ngIf="file.icon=='pi pi-file'" class="pi pi-file"  style="font-size: 2rem"></i>
+  </div>
+  <div>
+  {{file.label}}
+  </div>
+  </div>
+ 
+  
+      </div>
+    </div>
+  </div>
 </div>
 </div>
+
+<p-dialog header="{{selectedFile?.label}}" [(visible)]="displayBasic" [style]="{width: '30vw'}" [baseZIndex]="10000">
+  <div style="padding:10px">
+     <label style="margin-right:10px">Folder Name :</label>  <input type="text" [(ngModel)]="createFolderText" pInputText class="p-inputtext-sm" placeholder="Folder Name">
+  </div>  
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="displayBasic=false;saveCreateFolder()" label="Yes"></button>
+        <button type="button" pButton icon="pi pi-times" (click)="displayBasic=false;createFolderText='';blocked=false" label="No" class="ui-button-secondary"></button>
+    </p-footer>
+</p-dialog>
+<p-blockUI [blocked]="blocked"></p-blockUI>

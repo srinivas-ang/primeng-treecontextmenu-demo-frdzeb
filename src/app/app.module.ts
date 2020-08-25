@@ -13,6 +13,7 @@ import {ToastModule} from 'primeng/toast';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {ContextMenuModule} from 'primeng/contextmenu';
+import {BlockUIModule} from 'primeng/blockui';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {ContextMenuModule} from 'primeng/contextmenu';
     ContextMenuModule,
     HttpClientModule,
     FormsModule,
+    BlockUIModule,
     RouterModule.forRoot([
       {path:'',component: AppComponent}
 

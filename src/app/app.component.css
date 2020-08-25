@@ -1,7 +1,7 @@
 
 
 
-div.ui-tree{
+.ui-tree{
   width:17em !important;
   height: 45.65em !important;
 }
@@ -12,3 +12,15 @@ p-tree{
 .ui-tree.ui-widget.ui-widget-content.ui-corner-all.ui-tree-selectable {
     height: 45.65em !important;
 }
+.ui-grid-col-1.ng-valid[required]:hover {
+    background-color: lightgray;
+    border-radius: 5px;
+}
+:host::ng-deep ul.ui-tree-container {
+  height:44em !important;
+}
+:host::ng-deep body .ui-button {
+  background-color: maroon !important;
+}
+
+
