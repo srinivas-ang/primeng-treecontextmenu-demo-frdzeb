@@ -1,0 +1,13 @@
+
+
+<div class="ui-grid" style="">
+  <div class="ui-grid-col-3" style="height: 40em;">
+    <i class="pi pi-spin pi-spinner" *ngIf="files.length == 0" style="font-size: 2rem"></i>
+<p-tree [value]="files" selectionMode="single" [(selection)]="selectedFile" [contextMenu]="cm"></p-tree>
+
+<p-contextMenu #cm [model]="items"></p-contextMenu>
+<p-toast></p-toast>
+</div>
+<div class="ui-grid-col-9" style="height: 40em;border: 1px solid #c8c8c8;border-radius: 2px;">
+</div>
+</div>

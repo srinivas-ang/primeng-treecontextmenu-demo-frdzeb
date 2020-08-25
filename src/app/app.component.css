@@ -1,0 +1,14 @@
+
+
+
+div.ui-tree{
+  width:17em !important;
+  height: 45.65em !important;
+}
+p-tree{
+  height: 45.65em !important;
+}
+
+.ui-tree.ui-widget.ui-widget-content.ui-corner-all.ui-tree-selectable {
+    height: 45.65em !important;
+}
